@@ -1,0 +1,61 @@
+{
+  "name": "react-bootstrap-select-dropdown",
+  "version": "1.3.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "homepage": "https://github.com/hardik-kondhiya/react-bootstrap-select-dropdown.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hardik-kondhiya/react-bootstrap-select-dropdown.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-react-jsx"
+    ]
+  },
+  "keywords": [
+    "bootstrap-select",
+    "react-bootstrap-select",
+    "react-bootstrap-select-dropdown",
+    "react-bootstrap-dropdown",
+    "bootstrap-dropdown",
+    "react-bootstrap-multi-select",
+    "multi-select",
+    "bootstrap-multi-select",
+    "react-bootstrap-selectpicker",
+    "bootstrap-selectpicker",
+    "react-bootstrap-multiple-select",
+    "bootstrap-multiple-select",
+    "multiple-select",
+    "multiselect-dropdown",
+    "bootstrap-multiselect-dropdown",
+    "react-bootstrap-multiselect-dropdown",
+    "react",
+    "bootstrap",
+    "select",
+    "dropdown"
+  ],
+  "author": "Hardik Kondhiya <sonihardik90@gmail.com>",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-react-jsx": "^7.13.12",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2"
+  },
+  "peerDevDependencies": {
+    "react": "^16.0.1",
+    "react-dom": "^16.0.1",
+    "bootstrap": "^4.1.0"
+  }
+}
