@@ -61,7 +61,7 @@ var BootstrapSelect = function BootstrapSelect(_ref, props) {
 
   if (defaultOptions.length) {
     options.forEach(function (optItem) {
-      if (defaultOptions.indexOf(optItem.labelKey) !== -1) optItem.isSelected = true;
+      optItem.isSelected = defaultOptions.indexOf(optItem.labelKey) !== -1 ? true : false;
     });
   }
 
