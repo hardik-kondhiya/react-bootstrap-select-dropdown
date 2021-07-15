@@ -207,14 +207,14 @@ var BootstrapSelect = function BootstrapSelect(_ref, props) {
     };
     optionsList.forEach(function (option, idx) {
       if (index === idx) {
-        if (selectedValue.indexOf(option.value) === -1) {
+        if (selectedKey.indexOf(option.labelKey) === -1) {
           selectedOptions.currentValue !== undefined ? selectedOptions.currentValue.push(option.value) : selectedOptions.currentValue = [option.value];
-          selectedOptions.currentKey !== undefined ? selectedOptions.currentKey.push(option.value) : selectedOptions.currentKey = [option.value];
+          selectedOptions.currentKey !== undefined ? selectedOptions.currentKey.push(option.labelKey) : selectedOptions.currentKey = [option.labelKey];
         }
       } else {
-        if (selectedValue.indexOf(option.value) !== -1) {
+        if (selectedKey.indexOf(option.labelKey) !== -1) {
           selectedOptions.currentValue !== undefined ? selectedOptions.currentValue.push(option.value) : selectedOptions.currentValue = [option.value];
-          selectedOptions.currentKey !== undefined ? selectedOptions.currentKey.push(option.value) : selectedOptions.currentKey = [option.value];
+          selectedOptions.currentKey !== undefined ? selectedOptions.currentKey.push(option.labelKey) : selectedOptions.currentKey = [option.labelKey];
         }
       }
     });
