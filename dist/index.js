@@ -8,6 +8,8 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -30,7 +32,11 @@ function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "und
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var BootstrapSelect = function BootstrapSelect(_ref, props) {
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var BootstrapSelect = function BootstrapSelect(_ref) {
   var _ref$error = _ref.error,
       error = _ref$error === void 0 ? false : _ref$error,
       _ref$disabled = _ref.disabled,
@@ -57,7 +63,8 @@ var BootstrapSelect = function BootstrapSelect(_ref, props) {
       placeholder = _ref.placeholder,
       showCountOn = _ref.showCountOn,
       onChange = _ref.onChange,
-      onClose = _ref.onClose;
+      onClose = _ref.onClose,
+      props = _objectWithoutProperties(_ref, ["error", "disabled", "showSearch", "showAction", "showTick", "isMultiSelect", "selectStyle", "actionBtnStyle", "menuSize", "className", "defaultOptions", "options", "placeholder", "showCountOn", "onChange", "onClose"]);
 
   if (defaultOptions.length) {
     options.forEach(function (optItem) {
@@ -119,8 +126,12 @@ var BootstrapSelect = function BootstrapSelect(_ref, props) {
   var _useState15 = (0, _react.useState)(initialState.labelKey.length > 0 ? initialState.labelKey : []),
       _useState16 = _slicedToArray(_useState15, 2),
       selectedKey = _useState16[0],
-      setSelectedKey = _useState16[1]; // Hide menu items
+      setSelectedKey = _useState16[1]; // Update options list on change option
 
+
+  (0, _react.useEffect)(function () {
+    setOptionsList(options);
+  }, [options]); // Hide menu items
 
   var hideMenu = function hideMenu() {
     if (JSON.stringify(beforeOpenVal) !== JSON.stringify(selectedValue)) options.length > 0 && onClose && onClose({
@@ -281,7 +292,8 @@ var BootstrapSelect = function BootstrapSelect(_ref, props) {
     return function () {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [handleClickOutside]);
+  }, [handleClickOutside]); // Handle window events
+
   (0, _react.useEffect)(function () {
     // Handle event on window resize
     var handleResize = function handleResize() {
@@ -300,10 +312,10 @@ var BootstrapSelect = function BootstrapSelect(_ref, props) {
       window.removeEventListener('scroll', handleScroll);
     };
   });
-  return /*#__PURE__*/_react["default"].createElement("div", {
+  return /*#__PURE__*/_react["default"].createElement("div", _extends({
     ref: selectEl,
     className: "".concat(showTick ? 'show-tick ' : '').concat(showSearch ? 'show-search ' : '').concat(disabled ? 'disabled ' : '', "dropdown hk--custom--select ").concat(className)
-  }, /*#__PURE__*/_react["default"].createElement("button", {
+  }, props), /*#__PURE__*/_react["default"].createElement("button", {
     type: "button",
     disabled: disabled,
     className: "btn dropdown-toggle ".concat(selectStyle, " ").concat(disabled ? 'disabled' : '', " ").concat(selectedValue && selectedValue.length === 0 ? 'bs-placeholder' : ''),
