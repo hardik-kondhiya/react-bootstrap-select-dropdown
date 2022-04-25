@@ -1,3 +1,7 @@
+# v1.3.4
+
+- Bug fixes: Update selected option to none if required to set as blank using set "defaultOptions" to [].
+
 # V1.3.3
 
 - Bug fixes: Update options' list on change in option list array.
