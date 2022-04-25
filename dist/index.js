@@ -68,11 +68,11 @@ var BootstrapSelect = function BootstrapSelect(_ref) {
       onClose = _ref.onClose,
       props = _objectWithoutProperties(_ref, _excluded);
 
-  (0, _react.useEffect)(function () {
+  if (defaultOptions.length) {
     options.forEach(function (optItem) {
       optItem.isSelected = defaultOptions.indexOf(optItem.labelKey) !== -1 ? true : false;
     });
-  }, [defaultOptions]);
+  }
 
   var selectEl = _react["default"].useRef();
 
@@ -133,7 +133,17 @@ var BootstrapSelect = function BootstrapSelect(_ref) {
 
   (0, _react.useEffect)(function () {
     setOptionsList(options);
-  }, [options]); // Hide menu items
+  }, [options]);
+  (0, _react.useEffect)(function () {
+    if (defaultOptions.length) {
+      options.forEach(function (optItem) {
+        optItem.isSelected = defaultOptions.indexOf(optItem.labelKey) !== -1 ? true : false;
+      });
+    } else {
+      setSelectedValue([]);
+      setSelectedKey([]);
+    }
+  }, [defaultOptions]); // Hide menu items
 
   var hideMenu = function hideMenu() {
     if (JSON.stringify(beforeOpenVal) !== JSON.stringify(selectedValue)) options.length > 0 && onClose && onClose({
