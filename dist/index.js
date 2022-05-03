@@ -107,6 +107,7 @@ var BootstrapSelect = function BootstrapSelect(_ref) {
       setBeforeOpenVal = _useState12[1];
 
   var btnPlaceHolder = placeholder && placeholder !== null ? placeholder : 'No option selected';
+  var prevOptions = (0, _react.useRef)();
   var initialState = {
     value: _toConsumableArray(options.filter(function (e) {
       return e.isSelected;
@@ -132,7 +133,10 @@ var BootstrapSelect = function BootstrapSelect(_ref) {
 
 
   (0, _react.useEffect)(function () {
-    setOptionsList(options);
+    if (JSON.stringify(prevOptions.current) !== JSON.stringify(options)) {
+      prevOptions.current = options;
+      setOptionsList(options);
+    }
   }, [options]);
   (0, _react.useEffect)(function () {
     if (defaultOptions.length) {
