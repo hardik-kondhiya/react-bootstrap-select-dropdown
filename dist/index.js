@@ -134,20 +134,19 @@ var BootstrapSelect = function BootstrapSelect(_ref) {
 
   (0, _react.useEffect)(function () {
     if (JSON.stringify(prevOptions.current) !== JSON.stringify(options)) {
+      if (defaultOptions.length) {
+        options.forEach(function (optItem) {
+          optItem.isSelected = defaultOptions.indexOf(optItem.labelKey) !== -1 ? true : false;
+        });
+      } else {
+        setSelectedValue([]);
+        setSelectedKey([]);
+      }
+
       prevOptions.current = options;
       setOptionsList(options);
     }
-  }, [options]);
-  (0, _react.useEffect)(function () {
-    if (defaultOptions.length) {
-      options.forEach(function (optItem) {
-        optItem.isSelected = defaultOptions.indexOf(optItem.labelKey) !== -1 ? true : false;
-      });
-    } else {
-      setSelectedValue([]);
-      setSelectedKey([]);
-    }
-  }, [defaultOptions]); // Hide menu items
+  }, [options]); // Hide menu items
 
   var hideMenu = function hideMenu() {
     if (JSON.stringify(beforeOpenVal) !== JSON.stringify(selectedValue)) options.length > 0 && onClose && onClose({

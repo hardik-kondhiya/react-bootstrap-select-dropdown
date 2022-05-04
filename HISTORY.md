@@ -1,3 +1,7 @@
+# v1.3.7
+
+- Bug fixes: Remove "defaultOptions" update dependency.
+
 # v1.3.6
 
 - Bug fixes: Update options state only if options are not same as previous.
