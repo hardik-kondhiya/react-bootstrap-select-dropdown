@@ -1,3 +1,7 @@
+# v1.3.8
+
+- Bug fixes: Set isSelected value as label on option change.
+
 # v1.3.7
 
 - Bug fixes: Remove "defaultOptions" update dependency.

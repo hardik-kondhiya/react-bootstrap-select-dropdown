@@ -139,8 +139,16 @@ var BootstrapSelect = function BootstrapSelect(_ref) {
           optItem.isSelected = defaultOptions.indexOf(optItem.labelKey) !== -1 ? true : false;
         });
       } else {
-        setSelectedValue([]);
-        setSelectedKey([]);
+        setSelectedValue(_toConsumableArray(options.filter(function (e) {
+          return e.isSelected;
+        }).map(function (e) {
+          return e.value;
+        })));
+        setSelectedKey.apply(void 0, _toConsumableArray(options.filter(function (e) {
+          return e.isSelected;
+        }).map(function (e) {
+          return e.labelKey;
+        })));
       }
 
       prevOptions.current = options;
