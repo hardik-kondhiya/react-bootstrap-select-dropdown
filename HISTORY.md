@@ -1,3 +1,7 @@
+# v1.3.99
+
+- Bug fixes: Set selected key in an array.
+
 # v1.3.8
 
 - Bug fixes: Set isSelected value as label on option change.

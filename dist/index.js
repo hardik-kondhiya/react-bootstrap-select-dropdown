@@ -144,7 +144,7 @@ var BootstrapSelect = function BootstrapSelect(_ref) {
         }).map(function (e) {
           return e.value;
         })));
-        setSelectedKey.apply(void 0, _toConsumableArray(options.filter(function (e) {
+        setSelectedKey(_toConsumableArray(options.filter(function (e) {
           return e.isSelected;
         }).map(function (e) {
           return e.labelKey;
