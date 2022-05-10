@@ -1,4 +1,8 @@
-# v1.3.99
+# v1.3.10
+
+- Update readme file.
+
+# v1.3.9
 
 - Bug fixes: Set selected key in an array.
 
