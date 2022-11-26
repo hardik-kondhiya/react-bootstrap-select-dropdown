@@ -1,3 +1,9 @@
+# v1.3.11
+
+- Bug fixes:
+  => Reset selected value if does not exist on option list items change
+  => Use "defaultOptions" prop to set or reset value.
+
 # v1.3.10
 
 - Update readme file.
